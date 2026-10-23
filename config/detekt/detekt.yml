@@ -1,0 +1,5 @@
+style:
+  MaxLineLength:
+    maxLineLength: 120
+    # KDoc prose may be longer than a code line; ktlint also permits long KDoc lines.
+    excludeCommentStatements: true
