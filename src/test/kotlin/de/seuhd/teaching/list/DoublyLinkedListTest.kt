@@ -5,6 +5,7 @@ import org.junit.jupiter.api.assertTimeoutPreemptively
 import java.time.Duration
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
@@ -132,6 +133,23 @@ class DoublyLinkedListTest {
         assertEquals(2, list.length)
         assertContentEquals(doubleArrayOf(0.9, 0.5), list.toDoubleArray())
         assertConsistent(list)
+    }
+
+    @Test
+    fun testGetReturnsValueAtIndex() {
+        list.append(doubleArrayOf(0.9, 0.5, 0.4))
+        assertEquals(0.9, list.get(0))
+        assertEquals(0.5, list.get(1))
+        assertEquals(0.4, list.get(2))
+    }
+
+    @Test
+    fun testGetThrowsForInvalidIndex() {
+        list.append(doubleArrayOf(0.9, 0.5, 0.4))
+        assertFailsWith<IndexOutOfBoundsException> { list.get(3) }
+        assertFailsWith<IndexOutOfBoundsException> { list.get(-1) }
+        list.clear()
+        assertFailsWith<IndexOutOfBoundsException> { list.get(0) }
     }
 
     @Test

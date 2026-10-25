@@ -92,6 +92,16 @@ class DoublyLinkedList {
     }
 
     /**
+     * Returns the value at position [index].
+     */
+    fun get(index: Int): Double {
+        if(index > 1000) println("Index exceeds the limit")
+        var element = begin
+        repeat(index) { element = element!!.next }
+        return element!!.value
+    }
+
+    /**
      * Inserts the value of [e] into this list, which must be sorted by [Double.compareTo].
      * NaN values sort last.
      * [e] itself is not linked into this list, so it may belong to another list.
