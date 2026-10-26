@@ -33,6 +33,10 @@ bin/
 ##########
 .gradle/
 build/
+# IntelliJ creates these wrapper files when it opens a project without a wrapper. This project uses Gradle from mise.
+gradlew
+gradlew.bat
+gradle/wrapper/
 
 ##########
 # Kotlin #
